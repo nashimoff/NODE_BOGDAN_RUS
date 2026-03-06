@@ -14,5 +14,5 @@ function fib(n) {
    }) 
 }
 
-// Heap out of memory NURLAN
+// Heap out of memory NURLAN kanday?
 fib(40 ).then((res) => console.log(res)) 
