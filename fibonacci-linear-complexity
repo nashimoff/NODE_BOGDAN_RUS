@@ -3,7 +3,7 @@ function info(text) {
     console.log(text, performance.now().toFixed(2))
 }
 
-info('Program start')
+info('Program start') 
 
 setTimeout(() => info('Timeout'), 0)
 
@@ -21,7 +21,7 @@ function fib(n) {
     }
     return sum
 }
-
+//
 console.log(fib(100000))
 
 info('Program end')
