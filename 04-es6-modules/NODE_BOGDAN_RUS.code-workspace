@@ -1,11 +1,14 @@
 {
-	"folders": [
-		{
-			"path": ".."
-		},
-		{
-			"path": "../../../Workspaces/Workspaces2"
-		}
-	],
-	"settings": {}
+  "folders": [
+    {
+      "path": "..",
+    },
+    {
+      "path": "../../../Workspaces/Workspaces2",
+    },
+    {
+      "path": "../../../../ConsoleApp1",
+    },
+  ],
+  "settings": {},
 }
