@@ -1,4 +1,7 @@
-const fs = require("fs");
+const fs = require("fs/promises");
+
+fs.writeFile('./first.txt', 'First file text')
+    .then(() => console.log('File first.txt was written'))
 
 fs.writeFile("./first.txt", "First file text", (err) => {
   if (err) console.log(err);
