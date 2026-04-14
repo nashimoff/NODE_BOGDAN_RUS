@@ -19,4 +19,6 @@ myEmitter.once("singleEvent", () => {
 setTimeout(() => myEmitter.emit("singleEvent", 1), 500);
 setTimeout(() => myEmitter.emit("singleEvent", 2), 1500);
 
-setTimeout(() => myEmitter.off("timeout", timeoutListenerFn));
+// Remove listener from the 'timeout' event
+setTimeout(() => myEmitter.off("timeout", timeoutListenerFn), 3000);
+setTimeout(() => myEmitter.emit("timeout", 4), 4000);
