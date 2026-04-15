@@ -1,7 +1,9 @@
-import { EventListener } from "events";
-import fs from "fs";
+// import { EventListener } from 'events';
+import { EventEmitter } from 'events';
+import fs from 'fs';
 
-const fileEmitter = new EventListener();
+// const fileEmitter = new EventListener();
+const fileEmitter = new EventEmitter();
 
 fileEmitter.on("writeComplete", () => {
   console.log("File first.txt was written");
