@@ -11,7 +11,14 @@ fileEmitter.on("writeComplete", () => {
 });
 
 fileEmitter.on('appendComplete', () => {
+    console.log("Appended text to the first.txt file");
+    fs.rename("./first.txt", "./renamed-first.txt", () => {
+        fileEmitter.emit('renameComplete')
+    });
+})
 
+fileEmitter.on('renameComplete', () => {
+    console.log("File was renamed");
 })
 
 
@@ -20,5 +27,4 @@ fs.writeFile("./first.txt", "First file text", () => {
 });
 
 
-fs.rename("./first.txt", "./renamed-first.txt");
-console.log("File was renamed");
+
