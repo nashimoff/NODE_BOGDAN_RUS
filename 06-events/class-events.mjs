@@ -10,6 +10,7 @@ class Post extends EventEmitter {
 
   like() {
     this.likesQty += 1;
+    this.emit('likePost')
   }
 }
 
