@@ -15,6 +15,10 @@ class Post extends EventEmitter {
 }
 
 const myPost = new Post("Bogdan", "My greate post!");
+myPost.on('likePost', () => {
+    console.log('Someone liked your post!')
+})
+
 console.log(myPost.author);
 console.log(myPost.text);
 console.log(myPost.likesQty);
