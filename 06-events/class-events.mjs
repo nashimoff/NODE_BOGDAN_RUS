@@ -6,18 +6,22 @@ class Post extends EventEmitter {
     this.author = author;
     this.text = text;
     this.likesQty = 0;
+    this.on("likePost", (username) => {
+  console.log(`${username} liked your post!`);
+});
   }
 
   like(username) {
+    if (!username) {
+        this.emit('error')
+    }
     this.likesQty += 1;
     this.emit("likePost", username);
   }
 }
 
 const myPost = new Post("Bogdan", "My greate post!");
-myPost.on("likePost", (username) => {
-  console.log(`${username} liked your post!`);
-});
+
 
 // console.log(myPost.author);
 // console.log(myPost.text);
