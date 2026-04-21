@@ -7,13 +7,16 @@ class Post extends EventEmitter {
     this.text = text;
     this.likesQty = 0;
     this.on("likePost", (username) => {
-  console.log(`${username} liked your post!`);
-});
+      console.log(`${username} liked your post!`);
+    });
+    this.on('error', (error) => {
+      console.error(error)
+    })
   }
 
   like(username) {
     if (!username) {
-        this.emit('error')
+        return this.emit('error', new Error('No username in the like request!'))
     }
     this.likesQty += 1;
     this.emit("likePost", username);
@@ -27,6 +30,6 @@ const myPost = new Post("Bogdan", "My greate post!");
 // console.log(myPost.text);
 // console.log(myPost.likesQty);
 myPost.like("alice");
-setTimeout(() => myPost.like("bob"), 1000);
+setTimeout(() => myPost.like(), 1000);
 setTimeout(() => myPost.like("alex"), 2000);
 // console.log(myPost.likesQty);
