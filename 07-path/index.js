@@ -17,6 +17,7 @@ console.log(path.dirname(directoryPath)); //.\NODE_BOGDAN_RUS
 console.log(path.resolve(relativePath)); //E:\COURSES\NODE_BOGDAN_RUS\NODE_BOGDAN_RUS\movie.mov
 
 console.log(path.extname(textFilePath)); //.txt
+console.log(path.extname(relativePath)); //.mov
 console.log(path.extname(directoryPath)); // ''
 
 console.log(path.parse(filePath));
