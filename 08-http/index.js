@@ -4,8 +4,8 @@ const PORT = 5000
 
 const server = http.createServer((req, res) => {
     res.statusCode = 200
-    res.setHeader('Content-Type', 'text/plain')
-    res.end('Greetings from the HTTP server!');
+    res.setHeader('Content-Type', 'text/html')
+    res.end('<h1>Greetings from the HTTP server!</h1>');
 });
 
 server.listen(PORT, () => {
