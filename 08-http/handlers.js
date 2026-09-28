@@ -32,9 +32,9 @@ function postComment(req, res) {
             comments.push(JSON.parse(commentJSON))
             res.statusCode = 200
             res.end('Comment data was received')
-
         } catch (error) {
-            
+            res.statusCode = 400
+            res.end('Invalid JSON')
         }
         
     });
