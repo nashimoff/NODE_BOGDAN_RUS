@@ -1,4 +1,5 @@
 const fs = require("fs");
+const qs = require("querystring");
 const path = require("path");
 const comments = require("./data");
 
@@ -50,7 +51,15 @@ function postComment(req, res) {
       body += chunk.toString();
     });
     req.on("end", () => {
-      console.log(body);
+      try {
+        const comment = qs.parse(body);
+        comments.push(comment);
+        res.statusCode = 200;
+        res.end("Comment data was received");
+      } catch (error) {
+        res.statusCode = 400;
+        res.end("Invalid Form data");
+      }
     });
   } else if (req.headers["content-type"] === "application/json") {
     let commentJSON = "";
