@@ -1,3 +1,3 @@
 import stream from 'stream'
 
-console.log(process)
+process.stdin.pipe(process.stderr);
