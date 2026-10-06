@@ -1,15 +1,17 @@
-import Transform from 'stream';
-import fs from 'fs';
+import { Transform } from "stream";
+import fs from "fs";
 
-const upperCaseStream = new Transform ({
-    transform: function(chunk, encoding, cb) {
-        const upperCased = chunk;
-        console.log(upperCased);
-        cb(null, upperCased)
-    }
-})
+const upperCaseStream = new Transform({
+  transform: function (chunk, encoding, cb) {
+    const upperCased = chunk;
+    console.log(upperCased);
+    cb(null, upperCased);
+  },
+});
 
-// // Pipe to file  
+process.stdin.pipe(upperCaseStream).pipe(process.stdout);
+
+// // Pipe to file
 // const filePath = './files/stdin-dump.txt';
 // const writeStream = fs.createWriteStream(filePath)
 // process.stdin.pipe(writeStream);
