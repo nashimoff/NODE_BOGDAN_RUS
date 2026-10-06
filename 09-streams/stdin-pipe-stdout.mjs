@@ -3,13 +3,24 @@ import fs from "fs";
 
 const upperCaseStream = new Transform({
   transform: function (chunk, encoding, cb) {
-    const upperCased = chunk;
-    console.log(upperCased);
+    const upperCased = chunk.toString().toUpperCase();
     cb(null, upperCased);
   },
 });
 
-process.stdin.pipe(upperCaseStream).pipe(process.stdout);
+const reverseStream = new Transform({
+  transform(chunk, encoding, cb) {
+    const arrayOfChars = chunk.toString().split('');
+    arrayOfChars.pop()
+    const reversed = chunk.toString().split('').reverse().join('');
+    cb(null, reversed);
+  }
+})
+
+process.stdin
+  .pipe(upperCaseStream)
+  .pipe(reverseStream)
+  .pipe(process.stdout);
 
 // // Pipe to file
 // const filePath = './files/stdin-dump.txt';
