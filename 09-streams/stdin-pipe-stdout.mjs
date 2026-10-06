@@ -1,3 +1,10 @@
-import stream from 'stream'
+import stream from 'stream';
+import fs from 'fs';
 
-process.stdin.pipe(process.stderr);
+// Pipe to file  
+const filePath = './files/stdin-dump.txt';
+const writeStream = fs.createWriteStream(filePath)
+process.stdin.pipe(writeStream);
+
+// Pipe to stdout
+process.stdin.pipe(process.stdout)
