@@ -11,8 +11,8 @@ const upperCaseStream = new Transform({
 const reverseStream = new Transform({
   transform(chunk, encoding, cb) {
     const arrayOfChars = chunk.toString().split('');
-    arrayOfChars.pop()
-    const reversed = chunk.toString().split('').reverse().join('');
+    const lastChar = arrayOfChars.pop()
+    const reversed = arrayOfChars.reverse().concat(lastChar).join('');
     cb(null, reversed);
   }
 })
