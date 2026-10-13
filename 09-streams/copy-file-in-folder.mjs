@@ -27,5 +27,11 @@ fs.readdir(sourceDir, (err, fileNames) => {
         console.log(err)
         process.exit(1)
     }
-    console.log(fileNames)
+    fileNames.forEach((fileName, index) => {
+      const sourceFilePath = path.join(sourceDir, fileName)
+      const destinationFilePath = path.join(destinationDir, `${index}. ${fileName}`)
+
+      const readFileStream = fs.createReadStream(sourceFilePath)
+      const writeFileStream = fs.createWriteStream(destinationFilePath)
+    })
 })
