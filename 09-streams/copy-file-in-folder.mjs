@@ -17,21 +17,27 @@ if (!fs.existsSync(sourceDir)) {
 
 if (fs.existsSync(destinationDir)) {
   fs.rmdirSync(destinationDir);
-//   console.log("Destination dir removed");
+  //   console.log("Destination dir removed");
 }
 // fs.mkdir(destinationDir);
 fs.mkdirSync(destinationDir);
 
 fs.readdir(sourceDir, (err, fileNames) => {
-    if (err) {
-        console.log(err)
-        process.exit(1)
-    }
-    fileNames.forEach((fileName, index) => {
-      const sourceFilePath = path.join(sourceDir, fileName)
-      const destinationFilePath = path.join(destinationDir, `${index}. ${fileName}`)
+  if (err) {
+    console.log(err)
+    process.exit(1)
+  }
+  fileNames.forEach((fileName, index) => {
+    const sourceFilePath = path.join(sourceDir, fileName)
+    const destinationFilePath = path.join(destinationDir, `${index}. ${fileName}`)
 
-      const readFileStream = fs.createReadStream(sourceFilePath)
-      const writeFileStream = fs.createWriteStream(destinationFilePath)
+    const readFileStream = fs.createReadStream(sourceFilePath)
+    const writeFileStream = fs.createWriteStream(destinationFilePath)
+
+    readFileStream.pipe(writeFileStream)
+
+    writeFileStream.on('finish', () => {
+      console.log(`File ${fileName} was copied`)
     })
+  })
 })
