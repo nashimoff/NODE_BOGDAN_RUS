@@ -9,5 +9,5 @@ const writeStream = fs.createWriteStream(copiedFileName)
 readStream.pipe(writeStream)
 
 readStream.on('end', () => console.log('Read stream ended'))
-writeStream.on('end', () => console.log('Wrte stream ended'))
 writeStream.on('finish', () => console.log('File was copied'))
+writeStream.on('close', () => console.log('Wrte stream ended'))
