@@ -1,0 +1,15 @@
+{
+  "name": "npm-first-project",
+  "version": "1.0.0",
+  "description": "My first NPM project",
+  "keywords": [
+    "npm"
+  ],
+  "license": "ISC",
+  "author": "Bogdan",
+  "type": "commonjs",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  }
+}
