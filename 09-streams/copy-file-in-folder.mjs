@@ -12,7 +12,7 @@ const destinationDir = path.join(__dirname, "copied-files");
 if (!fs.existsSync(sourceDir)) {
   console.warn(`Source dir ${sourceDir} doesn't exist!`);
   console.log("Exiting...");
-  process.exit(0);
+  process.exit(0);//
 }
 
 if (fs.existsSync(destinationDir)) {
