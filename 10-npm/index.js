@@ -1,3 +1,8 @@
 const express = require('express');
+const app = express()
 
-console.log(express);
+app.get('/', function (req, res) {
+    res.send('Hello from Express')
+})
+
+app.listen(3000)
