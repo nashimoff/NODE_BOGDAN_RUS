@@ -11,8 +11,7 @@ const getCommentsHandler = (req, res) => {
 };
 
 const getCommentHandler = (req, res) => {
-    console.log(req.params)
-    res.send('Get comment route')
+    res.send(`Get comment route. CommentId ${req.params.commentId}`);
 }
 
 const postCommentsHandler = (req, res) => {
@@ -20,8 +19,11 @@ const postCommentsHandler = (req, res) => {
 };
 
 app.get("/", getRootHandler);
-app.get("/comments", getCommentsHandler);
-app.post("/comments", postCommentsHandler);
+app.route('/comments')
+    .get(getCommentHandler)
+    .post(postCommentsHandler)
+// app.get("/comments", getCommentsHandler);
+// app.post("/comments", postCommentsHandler);
 app.get("/comments/:commentId", getCommentHandler);
 
 app.listen(5000, () => console.log("Server was started on port 5000"));
