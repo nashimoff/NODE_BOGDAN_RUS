@@ -21,14 +21,14 @@ const deleteCommentHandler = (req, res) => {
 };
 
 //users
-const getCommentsHandler = (req, res) => {
-  res.send("Get comments route");
+const getUsersHandler = (req, res) => {
+  res.send("Get users route");
 };
-const getSingleCommentHandler = (req, res) => {
-  res.send(`Get comment route. CommentId ${req.params.commentId}`);
+const getSingleUserHandler = (req, res) => {
+  res.send(`Get user route. UserId ${req.params.userId}`);
 };
-const postCommentsHandler = (req, res) => {
-  res.send("Post comments route");
+const postUsersHandler = (req, res) => {
+  res.send("Post users route");
 };
 
 app.get("/", getRootHandler);
