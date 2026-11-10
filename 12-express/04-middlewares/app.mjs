@@ -7,7 +7,6 @@ app.use(morgan('tiny'));
 
 app.use(express.json())
 
-
 app.use((req, res) => {
     console.log(req.body)
     return res.send("This is express server")
