@@ -4,10 +4,10 @@ const app = express();
 
 const logger = (req, res, next) => {
   console.log(req.method, req.path);
-//   next();
+  next();
 };
 
-// app.use(logger);
+app.use(logger);
 
 app.use((req, res) => res.send("This is express server"));
 
