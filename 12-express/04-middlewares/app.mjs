@@ -8,8 +8,12 @@ app.use(morgan('tiny'));
 app.use(express.json())
 
 app.use((req, res, next) => {
-    console.log(req)
-    console.log(req.headers['content-type'])
+    if (req.headers['content-type'] === 'application/x-www-form-urlencoded'){
+        let data = ''
+        req.on('data', (chunk) => data += chunk.toString())
+        req.on('end', () => console.log(data))
+    }
+    
     next()
 })
 
